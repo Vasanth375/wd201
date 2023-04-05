@@ -105,14 +105,13 @@ console.log("My Todo-list\n");
 console.log("Overdue");
 var overdues = todos.overdue();
 var formattedOverdues = todos.toDisplayableList(overdues);
-console.log(formattedOverdues);
-console.log("\n");
+console.log(formattedOverdues, "\n");
 
 console.log("Due Today");
 let itemsDueToday = todos.dueToday();
 let formattedItemsDueToday = todos.toDisplayableList(itemsDueToday);
-console.log(formattedItemsDueToday);
-console.log("\n");
+console.log(formattedItemsDueToday, "\n");
+
 
 console.log("Due Later");
 let itemsDueLater = todos.dueLater();
