@@ -10,11 +10,11 @@ const todoList = () => {
   const overdue = () => {
     // Write the date check condition here and return the array
     // of overdue items accordingly.
-    k = []
-    all.forEach(element => {
-        if(element.dueDate == yesterday){
-            k.push(element);
-        }
+    k = [];
+    all.forEach((element) => {
+      if (element.dueDate == yesterday) {
+        k.push(element);
+      }
     });
     return k;
   };
@@ -22,24 +22,23 @@ const todoList = () => {
   const dueToday = () => {
     // Write the date check condition here and return the array
     // of todo items that are due today accordingly.
-    k = []
-    all.forEach(element => {
-        if(element.dueDate == today){
-            k.push(element);
-        }
+    k = [];
+    all.forEach((element) => {
+      if (element.dueDate == today) {
+        k.push(element);
+      }
     });
     return k;
-
   };
 
   const dueLater = () => {
     // Write the date check condition here and return the array
     // of todo items that are due later accordingly.
-    k = []
-    all.forEach(element => {
-        if(element.dueDate == tomorrow){
-            k.push(element);
-        }
+    k = [];
+    all.forEach((element) => {
+      if (element.dueDate == tomorrow) {
+        k.push(element);
+      }
     });
     return k;
   };
@@ -47,32 +46,58 @@ const todoList = () => {
   const toDisplayableList = (list) => {
     // Format the To-Do list here, and return the output string
     // as per the format given above.
-    k = []
-    list.forEach(element =>{
-      if(element.completed == true){ 
-        k.push("[x] "+ element.title + " " + String(element.dueDate));
-      }
-      else{
-        k.push("[ ] "+ element.title + " " + String(element.dueDate));
+    // k = []
+
+    // list.forEach(element =>{
+    //   if( (element.dueDate == yesterday || element.dueDate == tomorrow)){
+    //     if(element.completed == true){
+    //       k.push("[x] "+ element.title + " " + String(element.dueDate));
+    //     }
+    //     else{
+    //       k.push("[ ] "+ element.title + " " + String(element.dueDate));
+    //     }
+    //     t = ""
+    //     k.forEach(el =>{
+    //       t+=el +"\n";
+    //     })
+    //     return t;
+    // }
+    // if(element.)
+    // }
+
+    k = [];
+    list.forEach((element) => {
+      if(element.dueDate == today){
+        if(element.completed == true){
+          k.push("[x] "+ element.title );
+        }else{
+          k.push("[ ] "+ element.title);
+        }
+      }else{
+        if(element.completed == true){
+          k.push("[x] "+ element.title + " " + String(element.dueDate));
+        }else{
+          k.push("[ ] "+ element.title + " " + String(element.dueDate));
+        }
       }
     });
-    
-    t = ""
-    k.forEach(el =>{
-      t+=el +"\n";
-    })
-    return t;
-  };
+        t = ""
+        k.forEach(el =>{
+          t+=el +"\n";
+        })
+        return t;
 
-  return {
-    all,
-    add,
-    markAsComplete,
-    overdue,
-    dueToday,
-    dueLater,
-    toDisplayableList,
   };
+    return {
+      all,
+      add,
+      markAsComplete,
+      overdue,
+      dueToday,
+      dueLater,
+      toDisplayableList,
+    };
+  
 };
 
 // ####################################### #
@@ -112,11 +137,8 @@ let itemsDueToday = todos.dueToday();
 let formattedItemsDueToday = todos.toDisplayableList(itemsDueToday);
 console.log(formattedItemsDueToday, "\n");
 
-
 console.log("Due Later");
 let itemsDueLater = todos.dueLater();
 let formattedItemsDueLater = todos.toDisplayableList(itemsDueLater);
 console.log(formattedItemsDueLater);
 console.log("\n");
-
-
